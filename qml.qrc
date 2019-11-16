@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>LeftMenu.qml</file>
+        <file>RightMenu.qml</file>
+        <file>MapBody.qml</file>
+        <file>InfoBar.qml</file>
+        <file>MenuButton.qml</file>
+        <file>MapTile.qml</file>
+        <file>images/land.jpg</file>
+        <file>images/soldier.jpg</file>
+        <file>images/tank.jpg</file>
+        <file>UnitBox.qml</file>
+    </qresource>
+</RCC>
