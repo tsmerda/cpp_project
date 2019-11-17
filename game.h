@@ -11,7 +11,7 @@
 #include <fstream>
 #include <iostream>
 #include "tile.h"
-//#include "mapmanager.h"
+#include "mapmanager.h"
 
 class Game : public QObject
 {
@@ -25,9 +25,6 @@ class Game : public QObject
 public:
       explicit Game(QObject *parent = nullptr);
       Q_INVOKABLE int getId(int index);
-      Q_INVOKABLE int newMap();
-      Q_INVOKABLE int saveMap();
-      Q_INVOKABLE int loadMap();
       Q_INVOKABLE int getScore1();
       Q_INVOKABLE int getScore2();
       Q_INVOKABLE int getObject(int index);

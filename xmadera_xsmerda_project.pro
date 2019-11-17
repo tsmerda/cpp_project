@@ -39,4 +39,6 @@ HEADERS += \
     tile.h
 
 DISTFILES += \
-    data.txt
+    .gitignore \
+    data.txt \
+    savedData.txt
