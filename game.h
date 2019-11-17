@@ -21,6 +21,7 @@ class Game : public QObject
     int m_score2;
 
     std::vector <Tile> m_map;
+    MapManager * manager = new MapManager;
 
 public:
       explicit Game(QObject *parent = nullptr);
@@ -28,6 +29,9 @@ public:
       Q_INVOKABLE int getScore1();
       Q_INVOKABLE int getScore2();
       Q_INVOKABLE int getObject(int index);
+      Q_INVOKABLE void newMap();
+      Q_INVOKABLE void loadMap();
+      Q_INVOKABLE void saveMap();
 
 signals:
 

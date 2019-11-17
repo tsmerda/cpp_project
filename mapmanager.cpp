@@ -32,13 +32,16 @@ void MapManager::loadMap(){
            m_map.push_back(tile);
        }
         in.close();
-        std::cout << "mapa nactena" << std::endl;
+        std::cout << "Mapa nactena" << std::endl;
     } else {
         throw std::invalid_argument("File not found");
     }
 }
 
-void MapManager::saveMap(){
+void MapManager::saveMap(std::vector <Tile> map){
+    m_map.clear();
+    m_map = map;
+
     std::ofstream out;
     out.open("savedData.txt");
     if (out.is_open()){

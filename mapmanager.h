@@ -15,8 +15,8 @@ public:
     MapManager();
     void newMap();
     void loadMap();
-    void saveMap();
-     std::vector <Tile> returnMap();
+    void saveMap(std::vector <Tile> map);
+    std::vector <Tile> returnMap();
 
 };
 
