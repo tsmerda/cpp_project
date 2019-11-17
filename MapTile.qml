@@ -15,6 +15,7 @@ Rectangle{
        }
     }
 
+
     Image {
         id: land
         anchors.fill: parent

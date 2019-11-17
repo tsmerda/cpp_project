@@ -1,6 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+
 #include <QString>
 #include <QObject>
 #include <vector>
@@ -12,17 +16,21 @@
 class Game : public QObject
 {
     Q_OBJECT
-//    int m_money;
-//    int m_material;
-//    int m_xp;
 
-//    std::vector <Tile*> m_position;
-      std::vector <int> m_map;
+    int m_score1;
+    int m_score2;
+
+    std::vector <Tile> m_map;
 
 public:
       explicit Game(QObject *parent = nullptr);
       Q_INVOKABLE int getId(int index);
-
+      Q_INVOKABLE int newMap();
+      Q_INVOKABLE int saveMap();
+      Q_INVOKABLE int loadMap();
+      Q_INVOKABLE int getScore1();
+      Q_INVOKABLE int getScore2();
+      Q_INVOKABLE int getObject(int index);
 
 signals:
 

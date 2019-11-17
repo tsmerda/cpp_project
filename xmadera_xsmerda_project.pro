@@ -16,7 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         game.cpp \
         main.cpp \
-        mapmanager.cpp
+        mapmanager.cpp \
+        soldier.cpp
 
 RESOURCES += qml.qrc
 
@@ -34,6 +35,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     game.h \
     mapmanager.h \
+    soldier.h \
     tile.h
 
 DISTFILES += \

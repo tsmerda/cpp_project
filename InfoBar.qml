@@ -1,8 +1,8 @@
 import QtQuick 2.0
 
 Rectangle{
-//    property int money:  game.getMoney()
-//    property int material: game.getMaterial()
+    property int score1:  game.getScore1()
+    property int score2:  game.getScore2()
 
     anchors.top: parent.top
     height: parent.height * 0.05
@@ -12,8 +12,7 @@ Rectangle{
     opacity: 0.9
 
     Text {
-//        text: "Money " + money;
-        text: "Money "
+        text: "1.Player score: " + score1;
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 30
@@ -22,12 +21,12 @@ Rectangle{
     }
 
     Text {
-//        text: "Material " + material
-        text: "Material "
+        text: "2.Player score: " + score2;
         anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 170
+        anchors.right: parent.right
+        anchors.rightMargin: 30
         color: "white"
         font.pixelSize: 16
     }
+
 }

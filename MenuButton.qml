@@ -34,9 +34,15 @@ Rectangle {
             if (menuButton.title == "Exit game") {
                 Qt.quit()
             }
-        // Zavola ulozeni hry pak dalsi podminka nacteni hru a novou hru..
-//            if () {
-//            }
+            else if (menuButton.title == "New game") {
+                game.newMap()
+            }
+            else if (menuButton.title == "Save game") {
+                game.saveMap()
+            }
+            else if (menuButton.title == "Load game") {
+                game.loadMap()
+            }
         onEntered:
                 menuButton.state = "hover"
         onExited:
