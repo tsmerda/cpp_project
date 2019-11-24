@@ -38,12 +38,18 @@ Rectangle {
 
                        if (selectedId == 0) {
                            selectedId = game.getId(index)
-                       } else if (selectedId != game.getId(index)) {
+//                           mapTile.color = "red"
+//                           mapTile.opacity = 0.8
+                       } else if (selectedId != game.getId(index)) { // Prvni kliknuti na objekt a nasledne pohyb (Tady se potom prida kdyz tam bude jiny objekt)
                            mapTile.tileId = selectedId
                            game.setId(selectedPreviousIndex,0)
                            game.setId(index,selectedId)
                            selectedPreviousIndex = 0
                            selectedId = 0
+                       } else if (selectedId == game.getId(index)) { // Pri opetovnem kliknuti na stejny objekt se vyber zrusi
+                           selectedId = 0
+                           selectedPreviousIndex = 0
+                           menuRight.objectId = 0
                        }
                     }
                 }

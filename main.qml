@@ -15,9 +15,4 @@ Window {
         id: menuRight
     }
 
-//    MapBody{
-//    InfoBar{}
-//    LeftMenu{}
-//    RightMenu{}
-//    }
 }

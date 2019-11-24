@@ -5,9 +5,10 @@ Rectangle{
     property int tileIndex: 0
     property int tileId: game.getId(tileIndex)
 
+    color: "black"
+    opacity: 1
     width: parent.width * 0.1 - 1
     height: parent.height * 0.1 - 1
-    color:  "black"
 
     function getImage() {
        switch(tileId) {
@@ -41,32 +42,40 @@ Rectangle{
         font.bold: true
     }
 
+    states: [
+        State {
+            //nefunguje nevim proc
+            name: "pressed"
+            PropertyChanges {
+                target: mapTile
+                color: "red"
+                opacity: 0.8
+            }
+        },
+        State {
+            name: "hover"
+            PropertyChanges {
+                target: mapTile
+                color: "black"
+                opacity: 0.8
+            }
+        }
+    ]
+
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
         onEntered:
-            mapTile.color = "black",
-            mapTile.opacity = 0.8
+            if (mapTile.state != "pressed") {
+                mapTile.state = "hover"
+            }
         onExited:
-            mapTile.color = "transparent",
-            mapTile.opacity = 1
+            if (mapTile.state != "pressed") {
+                mapTile.state = ""
+            }
         }
 
-            states: [
-                State {
-                    name: "move"
-                    PropertyChanges {
-                        target: idLabel
-                        text: "50"
-                    }
-//                    PropertyChanges {
-//                        target: tileText
-//                        visible: false
-//                    }
-                }
-            ]
-
-    transitions: Transition {
+     transitions: Transition {
         ColorAnimation {
             duration: 125
         }
