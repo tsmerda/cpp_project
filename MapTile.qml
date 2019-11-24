@@ -2,13 +2,15 @@ import QtQuick 2.0
 
 Rectangle{
     id: mapTile
-    property int tileIndex: game.getId(index)
+    property int tileIndex: 0
+    property int tileId: game.getId(tileIndex)
+
     width: parent.width * 0.1 - 1
     height: parent.height * 0.1 - 1
     color:  "black"
 
     function getImage() {
-       switch(tileIndex) {
+       switch(tileId) {
        case 1: return "images/soldier.jpg";
        case 2: return "images/tank.jpg";
        default: return "images/land.jpg";
@@ -23,48 +25,46 @@ Rectangle{
     }
 
     Text {
+        id: indexLabel
         text: tileIndex
-        color: "blue"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        color: "black"
+        font.bold: true
     }
 
-    states: [
-        State {
-            name: "hover"
-            PropertyChanges {
-                target: mapTile
-                opacity: 0.8
-                color: "black"
-            }
-        },
-        State {
-            name: "pressed"
-            PropertyChanges {
-                // nevim proc to nevidi ten unitBox
-                target: unitBox
-                opened: true
-            }
-        }
-    ]
+    Text {
+        id: idLabel
+        text: tileId
+        anchors.centerIn: parent
+        color: "red"
+        font.bold: true
+    }
 
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
-        onClicked:
-            if (mapTile.state == "pressed") {
-                mapTile.state = ""
-            } else {
-                mapTile.state = "pressed"
-                mapTile.state = "hover"
-            }
         onEntered:
-            if (mapTile.state != "pressed") {
-                mapTile.state = "hover"
-            }
+            mapTile.color = "black",
+            mapTile.opacity = 0.8
         onExited:
-            if (mapTile.state != "pressed") {
-                mapTile.state = ""
-            }
+            mapTile.color = "transparent",
+            mapTile.opacity = 1
         }
+
+            states: [
+                State {
+                    name: "move"
+                    PropertyChanges {
+                        target: idLabel
+                        text: "50"
+                    }
+//                    PropertyChanges {
+//                        target: tileText
+//                        visible: false
+//                    }
+                }
+            ]
 
     transitions: Transition {
         ColorAnimation {

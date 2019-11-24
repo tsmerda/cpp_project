@@ -2,21 +2,33 @@ import QtQuick 2.0
 
 Rectangle {
     id: unitBox
-    property bool opened: false
+    property int objectIndex
+    property int objectId
+//    property bool opened: false
 
-    width: 140
-    height: 240
 
-    border.width: 1
-    border.color: "black"
 
-    visible: unitBox.opened
+    color: "white"
+    height: parent.height * 0.5
+    width: parent.width * 0.8
+    anchors.horizontalCenter: parent.horizontalCenter
+    y: 100
 
-    Text {
-        anchors.top: parent.top
-        text: "Ahoj"
-        anchors.margins: 10
-        x: 10
+
+//    visible: unitBox.opened
+
+    Column {
+        Text {
+            id: unitIndex
+            font.pixelSize: 16
+            color: "black"
+            text: objectIndex
+        }
+        Text {
+            id: unitId
+            font.pixelSize: 16
+            color: "black"
+            text: objectId
+        }
     }
-
 }

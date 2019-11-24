@@ -11,7 +11,9 @@ Window {
     LeftMenu{}
     InfoBar{}
     MapBody{}
-    RightMenu{}
+    RightMenu{
+        id: menuRight
+    }
 
 //    MapBody{
 //    InfoBar{}

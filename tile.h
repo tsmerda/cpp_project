@@ -9,6 +9,7 @@ struct Tile
 {
     unsigned int id;
     std::string img;
+
 };
 
 #endif // TILE_H

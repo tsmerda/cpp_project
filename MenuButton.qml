@@ -8,7 +8,7 @@ Rectangle {
     width: parent.width * 0.8
     color: "white"
     border.color: "white"
-    radius: 3
+    radius: 4
 
     Text {
         text: menuButton.title
@@ -17,36 +17,14 @@ Rectangle {
         font.pixelSize: 18
     }
 
-    states: [
-        State {
-            name: "hover"
-            PropertyChanges {
-                target: menuButton
-                color: "lightgrey"
-            }
-        }
-    ]
-
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
-        onClicked:
-            if (menuButton.title == "Exit game") {
-                Qt.quit()
-            }
-            else if (menuButton.title == "New game") {
-                game.newMap()
-            }
-            else if (menuButton.title == "Save game") {
-                game.saveMap()
-            }
-            else if (menuButton.title == "Load game") {
-                game.loadMap()
-            }
+
         onEntered:
-                menuButton.state = "hover"
+                menuButton.color = "lightgrey"
         onExited:
-                menuButton.state = ""
+                menuButton.color = "white"
         }
 
     transitions: Transition {
